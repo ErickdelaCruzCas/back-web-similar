@@ -1,6 +1,6 @@
 package com.prueba.backwebsimilar.api.error;
 
-import com.prueba.backwebsimilar.exception.NotFoundException;
+import com.prueba.backwebsimilar.exception.CustomException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,10 +11,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @RestControllerAdvice
 @Slf4j
-public class NotFoundExceptionHandlerControllerAdvice extends ResponseEntityExceptionHandler {
-    @ExceptionHandler({NotFoundException.class})
+public class CustomExceptionHandlerControllerAdvice extends ResponseEntityExceptionHandler {
+    @ExceptionHandler({CustomException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String handleConflict(NotFoundException exception, WebRequest request) {
+    public String handleConflict(CustomException exception, WebRequest request) {
         return "Custom Exception: " + exception.getErrorCode() + " " + exception.getMessage();
     }
 }

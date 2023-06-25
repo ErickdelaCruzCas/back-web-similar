@@ -19,11 +19,10 @@ public class ProductControllerAdapter  implements ProductApi {
 
     private final ProductServicePort productServicePort;
 
-
     @Override
     public ResponseEntity<Set<ProductDetail>> getProductSimilar(String productId) {
+        log.info("Request similar products with productId: {}", productId);
         return ResponseEntity.ok(productServicePort.getProductSimilar(productId));
     }
-
 
 }

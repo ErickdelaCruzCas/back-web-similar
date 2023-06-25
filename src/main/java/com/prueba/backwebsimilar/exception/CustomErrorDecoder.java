@@ -9,9 +9,11 @@ public class CustomErrorDecoder implements ErrorDecoder {
 
         switch (response.status()){
             case 404:
-                return new NotFoundException("Product Not Found", response.status());
+                return new CustomException("Product Not Found", response.status());
+            case 500:
+                return new CustomException("A saber", response.status());
             default:
-                return new Exception("Generic error");
+                return new CustomException(response.toString());
         }
     }
 }

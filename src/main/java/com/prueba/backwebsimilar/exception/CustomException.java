@@ -2,19 +2,18 @@ package com.prueba.backwebsimilar.exception;
 
 import lombok.Generated;
 
-public class NotFoundException extends RuntimeException {
+public class CustomException extends RuntimeException {
     private Integer errorCode;
 
-    public NotFoundException (String message, Integer errorCode) {
+    public CustomException (String message, Integer errorCode) {
         super(message);
         this.errorCode = errorCode;
     }
 
-    public NotFoundException (String message) {
+    public CustomException (String message) {
         super(message);
     }
 
-    @Generated
     public Integer getErrorCode() {
         return this.errorCode;
     }
